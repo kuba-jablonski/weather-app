@@ -12,13 +12,23 @@ export default {
   components: {
     myHeader: Header
   },
+  data () {
+    return {
+      forecast: {
+        currently: null,
+        next: null
+      }
+    }
+  },
   created () {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         console.log(position.coords.latitude, position.coords.longitude)
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d459dbf7e251f54f0119998983062aa8/${position.coords.latitude},${position.coords.longitude}`)
-          .then(res => {
-            console.log(res)
+          .then(({ data }) => {
+            console.log(data)
+            this.forecast.currently = data.currently
+            this.forecast.next = data.daily.data.splice(0, 3)
           })
       })
     } else {

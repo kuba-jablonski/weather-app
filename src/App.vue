@@ -1,16 +1,21 @@
 <template>
-  <my-header/>
+  <div>
+    <my-header/>
+    <my-currently :weather="forecast.currently"/>
+  </div>
 </template>
 
 <script>
 import axios from 'axios'
 import Header from './components/Header'
+import Currently from './components/Currently'
 
 // 3f74814c693ce35c3c3f355cdc86db36
 
 export default {
   components: {
-    myHeader: Header
+    myHeader: Header,
+    myCurrently: Currently
   },
   data () {
     return {

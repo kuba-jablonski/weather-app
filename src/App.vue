@@ -2,6 +2,9 @@
   <div>
     <my-header/>
     <my-currently v-if="forecast.currently" :weather="forecast.currently"/>
+    <my-next/>
+    <my-next/>
+    <my-next/>
   </div>
 </template>
 
@@ -9,13 +12,15 @@
 import axios from 'axios'
 import Header from './components/Header'
 import Currently from './components/Currently'
+import Next from './components/Next'
 
 // 3f74814c693ce35c3c3f355cdc86db36
 
 export default {
   components: {
     myHeader: Header,
-    myCurrently: Currently
+    myCurrently: Currently,
+    myNext: Next
   },
   data () {
     return {

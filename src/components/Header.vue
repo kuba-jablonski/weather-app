@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   background-color: $color-background;
-  height: 3rem;
+  height: 5%;
   border-bottom: 1px solid $color-grey-light;
 
   &__name {

@@ -37,6 +37,7 @@ export default {
 .current-weather {
   padding: 1rem 2rem;
   background: $color-background;
+  height: 50%;
 
   &__heading {
     display: flex;

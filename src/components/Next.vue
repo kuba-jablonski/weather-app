@@ -22,3 +22,23 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.future-weather {
+  height: 15%;
+
+  &__details {
+    display: flex;
+  }
+
+  &__temperature {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__maxtemp,
+  &__mintemp {
+    font-size: 2rem;
+  }
+}
+</style>

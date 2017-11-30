@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <my-header/>
     <my-currently v-if="forecast.currently" :weather="forecast.currently"/>
     <my-next/>
@@ -67,5 +67,9 @@ body {
   font-weight: 400;
   line-height: 1.5;
   box-sizing: border-box;
+}
+
+.app {
+  height: 100vh;
 }
 </style>

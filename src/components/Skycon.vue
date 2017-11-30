@@ -1,5 +1,5 @@
 <template>
-  <canvas ref="canvas" id="icon1" ></canvas>
+  <canvas ref="canvas" class="icon"></canvas>
 </template>
 
 <script>
@@ -10,15 +10,17 @@ export default {
     // console.log(this.$refs.canvas.tagName)
     var skycons = new Skycons({'color': 'pink'})
 
-    skycons.add('icon1', Skycons.PARTLY_CLOUDY_DAY)
+    skycons.add(this.$refs.canvas, Skycons.PARTLY_CLOUDY_DAY)
     skycons.play()
   }
 }
 </script>
 
 <style lang="scss" scoped>
-#icon1 {
-  width: 50%;
+.icon {
+  width: 100px;
+  height: 5%;
+  // height: 12rem;
   // height: 50%;
 }
 </style>

@@ -1,7 +1,6 @@
 <template>
   <div>
     <my-header/>
-    <my-skycon/>
     <my-currently v-if="forecast.currently" :weather="forecast.currently"/>
   </div>
 </template>
@@ -10,15 +9,13 @@
 import axios from 'axios'
 import Header from './components/Header'
 import Currently from './components/Currently'
-import Skycon from './components/Skycon'
 
 // 3f74814c693ce35c3c3f355cdc86db36
 
 export default {
   components: {
     myHeader: Header,
-    myCurrently: Currently,
-    mySkycon: Skycon
+    myCurrently: Currently
   },
   data () {
     return {

@@ -16,3 +16,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.weather-widget {
+  background-color: $color-grey-light;
+  padding: 2rem;
+  border: 3px solid $color-primary;
+}
+</style>

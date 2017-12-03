@@ -60,8 +60,13 @@ body {
   line-height: 1.5;
   box-sizing: border-box;
 }
+</style>
 
+<style lang="scss" scoped>
 .app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   background: $color-background;
 }

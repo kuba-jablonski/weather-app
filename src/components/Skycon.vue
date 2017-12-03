@@ -25,10 +25,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon {
-  width: 100px;
-  height: 100%;
-  // height: 12rem;
-  // height: 50%;
-}
+
 </style>

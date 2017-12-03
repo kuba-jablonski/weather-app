@@ -1,26 +1,18 @@
 <template>
   <div class="app">
-    <my-header/>
-    <my-currently v-if="forecast.currently" :weather="forecast.currently"/>
-    <my-next/>
-    <my-next/>
-    <my-next/>
+    <my-weather-widget/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import Header from './components/Header'
-import Currently from './components/Currently'
-import Next from './components/Next'
+import WeatherWidget from './components/WeatherWidget'
 
 // 3f74814c693ce35c3c3f355cdc86db36
 
 export default {
   components: {
-    myHeader: Header,
-    myCurrently: Currently,
-    myNext: Next
+    myWeatherWidget: WeatherWidget
   },
   data () {
     return {
@@ -71,5 +63,6 @@ body {
 
 .app {
   height: 100vh;
+  background: $color-background;
 }
 </style>

@@ -2,17 +2,20 @@
   <div class="weather-widget">
     <my-weather-heading/>
     <my-current-weather/>
+    <my-future-weather/> 
   </div>
 </template>
 
 <script>
 import WeatherHeading from './WeatherHeading'
 import CurrentWeather from './CurrentWeather'
+import FutureWeather from './FutureWeather'
 
 export default {
   components: {
     myWeatherHeading: WeatherHeading,
-    myCurrentWeather: CurrentWeather
+    myCurrentWeather: CurrentWeather,
+    myFutureWeather: FutureWeather
   }
 }
 </script>

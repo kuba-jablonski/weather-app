@@ -22,10 +22,13 @@ export default {
 
 <style lang="scss" scoped>
 .current-weather {
+  margin-bottom: 2rem;
+
   &__display {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 0.5rem;
   }
 
   &__icon {
@@ -34,6 +37,7 @@ export default {
 
   &__temp {
     font-size: 7.5rem;
+    line-height: 1;
   }
 
   &__summary {

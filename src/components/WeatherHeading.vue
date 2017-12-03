@@ -8,6 +8,7 @@
 <style lang="scss" scoped>
 .weather-heading {
   text-align: center;
+  margin-bottom: 2rem;
 
   &__main-heading {
     font-size: 2.2rem;

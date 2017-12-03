@@ -1,17 +1,25 @@
 <template>
-  <canvas ref="canvas" class="icon"></canvas>
+  <canvas :style="style" ref="canvas" class="icon"></canvas>
 </template>
 
 <script>
 const Skycons = require('skycons')(window)
 
 export default {
+  props: ['color', 'width', 'autoplay', 'icon'],
+  computed: {
+    style () {
+      return `width: ${this.width}px;`
+    }
+  },
   mounted () {
-    // console.log(this.$refs.canvas.tagName)
-    var skycons = new Skycons({'color': 'pink'})
+    const skycons = new Skycons({'color': this.color})
 
-    skycons.add(this.$refs.canvas, Skycons.PARTLY_CLOUDY_DAY)
-    skycons.play()
+    skycons.add(this.$refs.canvas, this.icon)
+
+    if (this.autoplay) {
+      skycons.play()
+    }
   }
 }
 </script>
@@ -19,7 +27,7 @@ export default {
 <style lang="scss" scoped>
 .icon {
   width: 100px;
-  height: 5%;
+  height: 100%;
   // height: 12rem;
   // height: 50%;
 }

@@ -5,7 +5,7 @@
       <button class="current-weather__switch">BANANA</button>
     </div>
     <div class="current-weather__details">
-      <my-skycon/>
+      <my-skycon :width="200" :autoplay="true" color="red" :icon="weather.icon"/>
       <span class="current-weather__temperature">
         {{ weather.temperature | roundTemp }}&deg;
       </span>

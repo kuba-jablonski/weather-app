@@ -4,3 +4,19 @@
     <p class="weather-heading__sub-heading">lubuskie</p>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.weather-heading {
+  text-align: center;
+
+  &__main-heading {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+
+  &__sub-heading {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+  }
+}
+</style>

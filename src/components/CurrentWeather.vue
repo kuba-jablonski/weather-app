@@ -25,6 +25,7 @@ export default {
   &__display {
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
   &__icon {
@@ -33,6 +34,11 @@ export default {
 
   &__temp {
     font-size: 7.5rem;
+  }
+
+  &__summary {
+    font-size: 1.4rem;
+    text-align: center;
   }
 }
 </style>

@@ -2,17 +2,23 @@
   <div class="future-weather">
     <div class="future-weather__box">
       <h2 class="future-weather__day">Monday</h2>
-      <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+      <div class="future-weather__icon">
+        <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+      </div>
       <p class="future-weather__temp">37/39&deg;F</p>
     </div>
     <div class="future-weather__box">
       <h2 class="future-weather__day">Monday</h2>
-      <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+      <div class="future-weather__icon">
+        <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+      </div>
       <p class="future-weather__temp">37/39&deg;F</p>
     </div>
     <div class="future-weather__box">
       <h2 class="future-weather__day">Monday</h2>
-      <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+      <div class="future-weather__icon">
+        <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+      </div>
       <p class="future-weather__temp">37/39&deg;F</p>
     </div>
   </div>
@@ -34,6 +40,10 @@ export default {
 
   &__box {
     text-align: center;
+  }
+
+  &__icon {
+    width: 100px;
   }
 }
 </style>

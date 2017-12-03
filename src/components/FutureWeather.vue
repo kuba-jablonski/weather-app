@@ -27,3 +27,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.future-weather {
+  display: flex;
+
+  &__box {
+    text-align: center;
+  }
+}
+</style>

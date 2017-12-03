@@ -1,7 +1,9 @@
 <template>
   <div class="current-weather">
     <div class="current-weather__display">
-      <my-skycon width="75" :autoplay="true" icon="fog" color="#A9DD9B"/>
+      <div class="current-weather__icon">
+        <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+      </div>
       <span class="current-weather__temp">31&deg;</span>
     </div>
     <p class="current-weather__summary">Conditions: foggy</p>
@@ -17,3 +19,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.current-weather {
+  &__display {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    width: 150px;
+  }
+
+  &__temp {
+    font-size: 7.5rem;
+  }
+}
+</style>

@@ -1,17 +1,12 @@
 <template>
-  <canvas :style="style" ref="canvas" class="icon"></canvas>
+  <canvas :style="style" ref="canvas" class="weather-icon"></canvas>
 </template>
 
 <script>
 const Skycons = require('skycons')(window)
 
 export default {
-  props: ['color', 'width', 'autoplay', 'icon'],
-  computed: {
-    style () {
-      return `width: ${this.width}px;`
-    }
-  },
+  props: ['color', 'autoplay', 'icon'],
   mounted () {
     const skycons = new Skycons({'color': this.color})
 
@@ -25,5 +20,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.weather-icon {
+  width: 100%;
+}
 </style>

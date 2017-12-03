@@ -14,6 +14,10 @@
     line-height: 1.2;
   }
 
+  &__icon {
+    flex: 0 0 100px;
+  }
+
   &__sub-heading {
     font-size: 1.4rem;
     text-transform: uppercase;

@@ -2,9 +2,9 @@
   <div class="current-weather">
     <div class="current-weather__display">
       <div class="current-weather__icon">
-        <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+        <my-skycon :autoplay="true" :icon="forecast.icon" color="#A9DD9B"/>
       </div>
-      <span class="current-weather__temp">31&deg;</span>
+      <span class="current-weather__temp">{{ forecast.temperature | roundTemp }}&deg;F</span>
     </div>
     <p class="current-weather__summary">Conditions: foggy</p>
   </div>
@@ -16,6 +16,12 @@ import Skycon from './Skycon'
 export default {
   components: {
     mySkycon: Skycon
+  },
+  props: ['forecast'],
+  filters: {
+    roundTemp (temp) {
+      return Math.round(temp)
+    }
   }
 }
 </script>

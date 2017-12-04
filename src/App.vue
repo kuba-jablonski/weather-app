@@ -20,6 +20,10 @@ export default {
   },
   data () {
     return {
+      location: {
+        city: null,
+        district: null
+      },
       forecast: {
         currently: null,
         next: null
@@ -29,12 +33,18 @@ export default {
   created () {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
-
         const { latitude, longitude } = position.coords
 
         axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDU_hrXt-Of6GuhWKFzSFbeXQ0wc5ga1bw`)
-          .then(res => {
-            console.log(res)
+          .then(({ data }) => {
+            data.results[0].address_components.forEach(component => {
+              if (component.types.includes('locality')) {
+                this.location.city = component.short_name
+              }
+              if (component.types.includes('administrative_area_level_1')) {
+                this.location.district = component.short_name
+              }
+            })
           })
           .catch(e => {
             console.log(e)

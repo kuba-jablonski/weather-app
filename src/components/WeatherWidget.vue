@@ -1,6 +1,6 @@
 <template>
   <div class="weather-widget">
-    <my-weather-heading/>
+    <my-weather-heading :location="location"/>
     <my-current-weather/>
     <my-future-weather/> 
   </div>

@@ -49,6 +49,7 @@ export default {
           .catch(e => {
             console.log(e)
           })
+
         axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d459dbf7e251f54f0119998983062aa8/${latitude},${longitude}`)
           .then(({ data }) => {
             console.log(data)
@@ -57,7 +58,7 @@ export default {
           })
       })
     } else {
-      alert('Poop')
+      alert('Your browser doesn\'t support geolocation!')
     }
   }
 }

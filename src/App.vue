@@ -1,6 +1,10 @@
 <template>
   <div class="app">
-    <my-weather-widget v-if="forecast.currently && forecast.next" />
+    <my-weather-widget
+      v-if="forecast.currently && forecast.next"
+      :location="location"
+      :forecast="forecast"  
+    />
   </div>
 </template>
 

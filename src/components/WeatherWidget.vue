@@ -16,7 +16,8 @@ export default {
     myWeatherHeading: WeatherHeading,
     myCurrentWeather: CurrentWeather,
     myFutureWeather: FutureWeather
-  }
+  },
+  props: ['location', 'forecast']
 }
 </script>
 

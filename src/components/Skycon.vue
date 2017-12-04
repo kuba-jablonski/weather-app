@@ -1,5 +1,5 @@
 <template>
-  <canvas :style="style" ref="canvas" class="weather-icon"></canvas>
+  <canvas ref="canvas" class="weather-icon"></canvas>
 </template>
 
 <script>

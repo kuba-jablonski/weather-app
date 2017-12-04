@@ -1,6 +1,6 @@
 <template>
   <div class="app">
-    <my-weather-widget/>
+    <my-weather-widget v-if="forecast.currently && forecast.next" />
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import WeatherWidget from './components/WeatherWidget'
 // 3f74814c693ce35c3c3f355cdc86db36
 
 // MAPS
-// AIzaSyDU_hrXt-Of6GuhWKFzSFbeXQ0wc5ga1bw 
+// AIzaSyDU_hrXt-Of6GuhWKFzSFbeXQ0wc5ga1bw
 
 export default {
   components: {
@@ -29,8 +29,9 @@ export default {
   created () {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
-        console.log(position.coords.latitude, position.coords.longitude)
-        const { latitude, longitude } = position.coords;
+
+        const { latitude, longitude } = position.coords
+
         axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDU_hrXt-Of6GuhWKFzSFbeXQ0wc5ga1bw`)
           .then(res => {
             console.log(res)
@@ -38,8 +39,7 @@ export default {
           .catch(e => {
             console.log(e)
           })
-
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d459dbf7e251f54f0119998983062aa8/${position.coords.latitude},${position.coords.longitude}`)
+        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d459dbf7e251f54f0119998983062aa8/${latitude},${longitude}`)
           .then(({ data }) => {
             console.log(data)
             this.forecast.currently = data.currently

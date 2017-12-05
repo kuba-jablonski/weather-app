@@ -2,7 +2,7 @@
   <div class="weather-widget">
     <my-weather-heading :location="location"/>
     <my-current-weather :forecast="forecast.currently"/>
-    <my-future-weather/> 
+    <my-future-weather :forecast="forecast.next"/> 
   </div>
 </template>
 

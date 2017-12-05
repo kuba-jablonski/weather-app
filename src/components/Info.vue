@@ -1,6 +1,6 @@
 <template>
   <div class="info">
-    <button @click="switchDegrees" class="info__btn">Switch to Celcius</button>
+    <button @click="switchDegrees" class="info__btn">{{ btnText }}</button>
     <p class="info__author">Created by bob durting the 100 Days of Code challenge.</p>
   </div>
 </template>
@@ -11,12 +11,19 @@ import { EventBus } from '../main'
 export default {
   data () {
     return {
-      celcius: false
+      celsius: false
+    }
+  },
+  computed: {
+    btnText () {
+      return this.celsius
+        ? 'Switch to Farenheit'
+        : 'Switch to Celsius'
     }
   },
   methods: {
     switchDegrees () {
-      this.celcius = !this.celcius
+      this.celsius = !this.celsius
       EventBus.$emit('DEGREES_SWITCHED')
     }
   }

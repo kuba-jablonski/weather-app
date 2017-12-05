@@ -5,6 +5,7 @@
       :location="location"
       :forecast="forecast"  
     />
+    <my-info />
   </div>
 </template>
 
@@ -12,10 +13,12 @@
 import axios from 'axios'
 import { GEO_KEY, WEATHER_KEY } from './config'
 import WeatherWidget from './components/WeatherWidget'
+import Info from './components/Info'
 
 export default {
   components: {
-    myWeatherWidget: WeatherWidget
+    myWeatherWidget: WeatherWidget,
+    myInfo: Info
   },
   data () {
     return {
@@ -90,6 +93,7 @@ body {
 <style lang="scss" scoped>
 .app {
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   height: 100vh;

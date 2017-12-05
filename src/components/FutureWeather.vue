@@ -1,42 +1,21 @@
 <template>
   <div class="future-weather">
-    <div class="future-weather__box">
-      <h2 class="future-weather__day">{{ days[0] }}</h2>
-      <div class="future-weather__icon">
-        <my-skycon :autoplay="true" :icon="forecast[0].icon" color="#A9DD9B"/>
-      </div>
-      <p class="future-weather__temp">
-        {{ forecast[0].temperatureLow | maybeCelsius(celsius) | round }}/{{ forecast[0].temperatureHigh | maybeCelsius(celsius) | round }}&deg;
-      </p>
-    </div>
-    <div class="future-weather__box">
-      <h2 class="future-weather__day">{{ days[1] }}</h2>
-      <div class="future-weather__icon">
-        <my-skycon :autoplay="true" :icon="forecast[1].icon" color="#A9DD9B"/>
-      </div>
-      <p class="future-weather__temp">
-        {{ forecast[1].temperatureLow | maybeCelsius(celsius) | round }}/{{ forecast[1].temperatureHigh | maybeCelsius(celsius) | round }}&deg;
-      </p>
-    </div>
-    <div class="future-weather__box">
-      <h2 class="future-weather__day">{{ days[2] }}</h2>
-      <div class="future-weather__icon">
-        <my-skycon :autoplay="true" :icon="forecast[2].icon" color="#A9DD9B"/>
-      </div>
-      <p class="future-weather__temp">
-        {{ forecast[2].temperatureLow | maybeCelsius(celsius) | round }}/{{ forecast[2].temperatureHigh | maybeCelsius(celsius) | round }}&deg;
-      </p>
-    </div>
+    <my-weather-box
+      v-for="(day, i) in days" :key="i"
+      :forecast="forecast[i]"
+      :day="day"
+      :celsius="celsius"
+    />
   </div>
 </template>
 
 <script>
 import { EventBus } from '../main'
-import Skycon from './Skycon'
+import WeatherBox from './WeatherBox'
 
 export default {
   components: {
-    mySkycon: Skycon
+    myWeatherBox: WeatherBox
   },
   props: ['forecast'],
   data () {
@@ -62,13 +41,5 @@ export default {
 <style lang="scss" scoped>
 .future-weather {
   display: flex;
-
-  &__box {
-    text-align: center;
-  }
-
-  &__icon {
-    width: 100px;
-  }
 }
 </style>

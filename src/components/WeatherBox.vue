@@ -1,6 +1,6 @@
 <template>
   <div class="weather-box">
-    <h2 class="weather-box__day">{{ days }}</h2>
+    <h2 class="weather-box__day">{{ day }}</h2>
     <div class="weather-box__icon">
       <my-skycon :autoplay="true" :icon="forecast.icon" color="#A9DD9B"/>
     </div>

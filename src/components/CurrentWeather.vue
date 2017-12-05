@@ -3,7 +3,7 @@
     <h2 class="current-weather__heading">Currently</h2>
     <div class="current-weather__display">
       <div class="current-weather__icon">
-        <my-skycon :autoplay="true" :icon="forecast.icon" color="#A9DD9B"/>
+        <my-skycon :autoplay="true" :icon="forecast.icon" color="#29B6F6"/>
       </div>
       <span class="current-weather__temp">{{ forecast.temperature | maybeCelsius(celsius) | round }}&deg;</span>
     </div>
@@ -34,7 +34,7 @@ export default {
 
 <style lang="scss" scoped>
 .current-weather {
-  margin-bottom: 2rem;
+  margin-bottom: 0.5rem;
   padding: 1rem 0;
   border-bottom: 1px solid $color-grey-light;
 

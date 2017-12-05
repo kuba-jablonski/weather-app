@@ -41,5 +41,6 @@ export default {
 <style lang="scss" scoped>
 .future-weather {
   display: flex;
+  justify-content: center;
 }
 </style>

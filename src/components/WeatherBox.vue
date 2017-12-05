@@ -2,7 +2,7 @@
   <div class="weather-box">
     <h2 class="weather-box__day">{{ day }}</h2>
     <div class="weather-box__icon">
-      <my-skycon :autoplay="true" :icon="forecast.icon" color="#A9DD9B"/>
+      <my-skycon :autoplay="true" :icon="forecast.icon" color="#29B6F6"/>
     </div>
     <p class="weather-box__temp">
       {{ forecast.temperatureLow | maybeCelsius(celsius) | round }}
@@ -38,7 +38,7 @@ export default {
   }
 
   &__temp {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
 }
 </style>

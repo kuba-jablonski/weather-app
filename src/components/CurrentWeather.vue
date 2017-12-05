@@ -4,20 +4,31 @@
       <div class="current-weather__icon">
         <my-skycon :autoplay="true" :icon="forecast.icon" color="#A9DD9B"/>
       </div>
-      <span class="current-weather__temp">{{ forecast.temperature | round }}&deg;F</span>
+      <span class="current-weather__temp">{{ forecast.temperature | maybeCelsius(celsius) | round }}&deg;</span>
     </div>
     <p class="current-weather__summary">Conditions: foggy</p>
   </div>
 </template>
 
 <script>
+import { EventBus } from '../main'
 import Skycon from './Skycon'
 
 export default {
   components: {
     mySkycon: Skycon
   },
-  props: ['forecast']
+  props: ['forecast'],
+  data () {
+    return {
+      celsius: false
+    }
+  },
+  mounted () {
+    EventBus.$on('DEGREES_SWITCHED', () => {
+      this.celsius = !this.celsius
+    })
+  }
 }
 </script>
 

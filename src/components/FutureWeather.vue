@@ -6,7 +6,7 @@
         <my-skycon :autoplay="true" :icon="forecast[0].icon" color="#A9DD9B"/>
       </div>
       <p class="future-weather__temp">
-        {{ forecast[0].temperatureLow | round }}/{{ forecast[0].temperatureHigh | round }}&deg;F
+        {{ forecast[0].temperatureLow | maybeCelsius(celsius) | round }}/{{ forecast[0].temperatureHigh | maybeCelsius(celsius) | round }}&deg;
       </p>
     </div>
     <div class="future-weather__box">
@@ -15,7 +15,7 @@
         <my-skycon :autoplay="true" :icon="forecast[1].icon" color="#A9DD9B"/>
       </div>
       <p class="future-weather__temp">
-        {{ forecast[1].temperatureLow | round }}/{{ forecast[1].temperatureHigh | round }}&deg;F
+        {{ forecast[1].temperatureLow | maybeCelsius(celsius) | round }}/{{ forecast[1].temperatureHigh | maybeCelsius(celsius) | round }}&deg;
       </p>
     </div>
     <div class="future-weather__box">
@@ -24,13 +24,14 @@
         <my-skycon :autoplay="true" :icon="forecast[2].icon" color="#A9DD9B"/>
       </div>
       <p class="future-weather__temp">
-        {{ forecast[2].temperatureLow | round }}/{{ forecast[2].temperatureHigh | round }}&deg;F
+        {{ forecast[2].temperatureLow | maybeCelsius(celsius) | round }}/{{ forecast[2].temperatureHigh | maybeCelsius(celsius) | round }}&deg;
       </p>
     </div>
   </div>
 </template>
 
 <script>
+import { EventBus } from '../main'
 import Skycon from './Skycon'
 
 export default {
@@ -38,12 +39,22 @@ export default {
     mySkycon: Skycon
   },
   props: ['forecast'],
+  data () {
+    return {
+      celsius: false
+    }
+  },
   computed: {
     days () {
       const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
       return days.splice(new Date().getDay() + 1, 3)
     }
+  },
+  mounted () {
+    EventBus.$on('DEGREES_SWITCHED', () => {
+      this.celsius = !this.celsius
+    })
   }
 }
 </script>

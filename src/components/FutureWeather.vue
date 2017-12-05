@@ -3,23 +3,23 @@
     <div class="future-weather__box">
       <h2 class="future-weather__day">{{ days[0] }}</h2>
       <div class="future-weather__icon">
-        <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+        <my-skycon :autoplay="true" :icon="forecast[0].icon" color="#A9DD9B"/>
       </div>
-      <p class="future-weather__temp">37/39&deg;F</p>
+      <p class="future-weather__temp">{{ forecast[0].temperatureLow }}/{{ forecast[0].temperatureHigh }}&deg;F</p>
     </div>
     <div class="future-weather__box">
       <h2 class="future-weather__day">{{ days[1] }}</h2>
       <div class="future-weather__icon">
-        <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+        <my-skycon :autoplay="true" :icon="forecast[1].icon" color="#A9DD9B"/>
       </div>
-      <p class="future-weather__temp">37/39&deg;F</p>
+      <p class="future-weather__temp">{{ forecast[1].temperatureLow }}/{{ forecast[1].temperatureHigh }}&deg;F</p>
     </div>
     <div class="future-weather__box">
       <h2 class="future-weather__day">{{ days[2] }}</h2>
       <div class="future-weather__icon">
-        <my-skycon :autoplay="true" icon="fog" color="#A9DD9B"/>
+        <my-skycon :autoplay="true" :icon="forecast[2].icon" color="#A9DD9B"/>
       </div>
-      <p class="future-weather__temp">37/39&deg;F</p>
+      <p class="future-weather__temp">{{ forecast[2].temperatureLow }}/{{ forecast[2].temperatureHigh }}&deg;F</p>
     </div>
   </div>
 </template>

@@ -10,6 +10,7 @@
 
 <script>
 import axios from 'axios'
+import { GEO_KEY, WEATHER_KEY } from './config'
 import WeatherWidget from './components/WeatherWidget'
 
 // DARK SKY
@@ -39,7 +40,7 @@ export default {
       navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords
 
-        axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyDU_hrXt-Of6GuhWKFzSFbeXQ0wc5ga1bw`)
+        axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GEO_KEY}`)
           .then(({ data }) => {
             data.results[0].address_components.forEach(component => {
               if (component.types.includes('locality')) {
@@ -54,7 +55,7 @@ export default {
             console.log(e)
           })
 
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/d459dbf7e251f54f0119998983062aa8/${latitude},${longitude}`)
+        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${WEATHER_KEY}/${latitude},${longitude}`)
           .then(({ data }) => {
             console.log(data)
             this.forecast.currently = data.currently

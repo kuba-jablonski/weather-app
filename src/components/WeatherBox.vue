@@ -28,8 +28,17 @@ export default {
 .weather-box {
   text-align: center;
 
+  &__day {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
+
   &__icon {
     width: 100px;
+  }
+
+  &__temp {
+    font-size: 1.2rem;
   }
 }
 </style>

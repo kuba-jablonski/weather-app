@@ -13,12 +13,6 @@ import axios from 'axios'
 import { GEO_KEY, WEATHER_KEY } from './config'
 import WeatherWidget from './components/WeatherWidget'
 
-// DARK SKY
-// 3f74814c693ce35c3c3f355cdc86db36
-
-// MAPS
-// AIzaSyDU_hrXt-Of6GuhWKFzSFbeXQ0wc5ga1bw
-
 export default {
   components: {
     myWeatherWidget: WeatherWidget
@@ -39,31 +33,33 @@ export default {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition(position => {
         const { latitude, longitude } = position.coords
-
-        axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GEO_KEY}`)
-          .then(({ data }) => {
-            data.results[0].address_components.forEach(component => {
-              if (component.types.includes('locality')) {
-                this.location.city = component.short_name
-              }
-              if (component.types.includes('administrative_area_level_1')) {
-                this.location.district = component.short_name
-              }
-            })
-          })
-          .catch(e => {
-            console.log(e)
-          })
-
-        axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${WEATHER_KEY}/${latitude},${longitude}`)
-          .then(({ data }) => {
-            console.log(data)
-            this.forecast.currently = data.currently
-            this.forecast.next = data.daily.data.splice(0, 3)
-          })
+        this.getLocationFromCoordinates(latitude, longitude)
+        this.getWeatherData(latitude, longitude)
       })
     } else {
       alert('Your browser doesn\'t support geolocation!')
+    }
+  },
+  methods: {
+    getLocationFromCoordinates (lat, lon) {
+      axios.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}&key=${GEO_KEY}`)
+        .then(({ data }) => {
+          data.results[0].address_components.forEach(component => {
+            if (component.types.includes('locality')) {
+              this.location.city = component.short_name
+            }
+            if (component.types.includes('administrative_area_level_1')) {
+              this.location.district = component.short_name
+            }
+          })
+        })
+    },
+    getWeatherData (lat, lon) {
+      axios.get(`https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast/${WEATHER_KEY}/${lat},${lon}`)
+        .then(({ data }) => {
+          this.forecast.currently = data.currently
+          this.forecast.next = data.daily.data.splice(0, 3)
+        })
     }
   }
 }

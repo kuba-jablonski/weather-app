@@ -83,7 +83,7 @@ html {
 
 body {
   font-family: "Lato", sans-serif;
-  // color: $font-color;
+  color: $color-grey-dark;
   font-weight: 400;
   line-height: 1.5;
   box-sizing: border-box;

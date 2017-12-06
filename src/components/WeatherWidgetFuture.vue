@@ -17,7 +17,12 @@ export default {
   components: {
     WeatherWidgetFutureItem
   },
-  props: ['forecast'],
+  props: {
+    forecast: {
+      type: Object,
+      required: true
+    }
+  },
   data () {
     return {
       celsius: false

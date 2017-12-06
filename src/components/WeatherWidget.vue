@@ -17,7 +17,16 @@ export default {
     WeatherWidgetCurrent,
     WeatherWidgetFuture
   },
-  props: ['location', 'forecast']
+  props: {
+    location: {
+      type: Object,
+      required: true
+    },
+    forecast: {
+      type: Object,
+      required: true
+    }
+  }
 }
 </script>
 

@@ -20,7 +20,20 @@ export default {
   components: {
     mySkycon: Skycon
   },
-  props: ['day', 'forecast', 'celsius']
+  props: {
+    forecast: {
+      type: Object,
+      required: true
+    },
+    day: {
+      type: String,
+      required: true
+    },
+    celsius: {
+      type: Boolean,
+      required: true
+    }
+  }
 }
 </script>
 

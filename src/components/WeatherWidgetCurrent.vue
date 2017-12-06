@@ -18,7 +18,12 @@ export default {
   components: {
     mySkycon: Skycon
   },
-  props: ['forecast'],
+  props: {
+    forecast: {
+      type: Object,
+      required: true
+    }
+  },
   data () {
     return {
       celsius: false

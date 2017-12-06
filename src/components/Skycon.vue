@@ -6,7 +6,20 @@
 const Skycons = require('skycons')(window)
 
 export default {
-  props: ['color', 'autoplay', 'icon'],
+  props: {
+    color: {
+      type: String,
+      required: true
+    },
+    icon: {
+      type: String,
+      required: true
+    },
+    autoplay: {
+      type: Boolean,
+      required: true
+    }
+  },
   mounted () {
     const skycons = new Skycons({'color': this.color})
 

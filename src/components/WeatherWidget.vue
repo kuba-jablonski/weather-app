@@ -1,8 +1,8 @@
 <template>
   <div class="weather-widget">
-    <weather-widget-heading :location="location"/>
-    <weather-widget-current :forecast="forecast.currently"/>
-    <weather-widget-future :forecast="forecast.next"/> 
+    <WeatherWidgetHeading :location="location"/>
+    <WeatherWidgetCurrent :forecast="forecast.currently"/>
+    <WeatherWidgetFuture :forecast="forecast.next"/> 
   </div>
 </template>
 

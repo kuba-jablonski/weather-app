@@ -1,6 +1,6 @@
 <template>
   <div class="future-weather">
-    <weather-widget-future-item
+    <WeatherWidgetFutureItem
       v-for="(day, i) in days" :key="i"
       :forecast="forecast[i]"
       :day="day"

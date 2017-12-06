@@ -1,11 +1,11 @@
 <template>
   <div class="app">
-    <weather-widget
+    <WeatherWidget
       v-if="forecast.currently && forecast.next"
       :location="location"
       :forecast="forecast"  
     />
-    <info-footer/>
+    <InfoFooter/>
   </div>
 </template>
 

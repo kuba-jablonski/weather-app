@@ -2,7 +2,7 @@
   <div class="weather-box">
     <h2 class="weather-box__day">{{ day }}</h2>
     <div class="weather-box__icon">
-      <my-skycon :autoplay="true" :icon="forecast.icon" color="#29B6F6"/>
+      <BaseSkycon :autoplay="true" :icon="forecast.icon" color="#29B6F6"/>
     </div>
     <p class="weather-box__temp">
       {{ forecast.temperatureLow | maybeCelsius(celsius) | round }}

@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import Skycon from './Skycon'
+import BaseSkycon from './BaseSkycon'
 
 export default {
   components: {
-    mySkycon: Skycon
+    BaseSkycon
   },
   props: {
     forecast: {

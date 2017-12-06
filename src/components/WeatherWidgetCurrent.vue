@@ -3,7 +3,7 @@
     <h2 class="current-weather__heading">Currently</h2>
     <div class="current-weather__display">
       <div class="current-weather__icon">
-        <my-skycon :autoplay="true" :icon="forecast.icon" color="#29B6F6"/>
+        <base-skycon :autoplay="true" :icon="forecast.icon" color="#29B6F6"/>
       </div>
       <span class="current-weather__temp">{{ forecast.temperature | maybeCelsius(celsius) | round }}&deg;</span>
     </div>
@@ -12,11 +12,11 @@
 
 <script>
 import { EventBus } from '../main'
-import Skycon from './Skycon'
+import BaseSkycon from './BaseSkycon'
 
 export default {
   components: {
-    mySkycon: Skycon
+    BaseSkycon
   },
   props: {
     forecast: {

@@ -1,6 +1,6 @@
 <template>
   <div class="future-weather">
-    <my-weather-box
+    <weather-widget-future-item
       v-for="(day, i) in days" :key="i"
       :forecast="forecast[i]"
       :day="day"
@@ -11,11 +11,11 @@
 
 <script>
 import { EventBus } from '../main'
-import WeatherBox from './WeatherBox'
+import WeatherWidgetFutureItem from './WeatherWidgetFutureItem'
 
 export default {
   components: {
-    myWeatherBox: WeatherBox
+    WeatherWidgetFutureItem
   },
   props: ['forecast'],
   data () {

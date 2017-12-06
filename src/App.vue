@@ -1,11 +1,11 @@
 <template>
   <div class="app">
-    <my-weather-widget
+    <weather-widget
       v-if="forecast.currently && forecast.next"
       :location="location"
       :forecast="forecast"  
     />
-    <my-info />
+    <info-footer/>
   </div>
 </template>
 
@@ -13,12 +13,12 @@
 import axios from 'axios'
 import { GEO_KEY, WEATHER_KEY } from './config'
 import WeatherWidget from './components/WeatherWidget'
-import Info from './components/Info'
+import InfoFooter from './components/InfoFooter'
 
 export default {
   components: {
-    myWeatherWidget: WeatherWidget,
-    myInfo: Info
+    WeatherWidget,
+    InfoFooter
   },
   data () {
     return {

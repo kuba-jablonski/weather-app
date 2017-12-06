@@ -1,21 +1,21 @@
 <template>
   <div class="weather-widget">
-    <my-weather-heading :location="location"/>
-    <my-current-weather :forecast="forecast.currently"/>
-    <my-future-weather :forecast="forecast.next"/> 
+    <weather-widget-heading :location="location"/>
+    <weather-widget-current :forecast="forecast.currently"/>
+    <weather-widget-future :forecast="forecast.next"/> 
   </div>
 </template>
 
 <script>
-import WeatherHeading from './WeatherHeading'
-import CurrentWeather from './CurrentWeather'
-import FutureWeather from './FutureWeather'
+import WeatherWidgetHeading from './WeatherWidgetHeading'
+import WeatherWidgetCurrent from './WeatherWidgetCurrent'
+import WeatherWidgetFuture from './WeatherWidgetFuture'
 
 export default {
   components: {
-    myWeatherHeading: WeatherHeading,
-    myCurrentWeather: CurrentWeather,
-    myFutureWeather: FutureWeather
+    WeatherWidgetHeading,
+    WeatherWidgetCurrent,
+    WeatherWidgetFuture
   },
   props: ['location', 'forecast']
 }

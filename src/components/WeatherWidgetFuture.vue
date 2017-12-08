@@ -30,7 +30,7 @@ export default {
   },
   computed: {
     days () {
-      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+      const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Monday']
 
       return days.splice(new Date().getDay() + 1, 3)
     }
